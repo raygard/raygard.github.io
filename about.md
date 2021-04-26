@@ -27,3 +27,5 @@ I was also an avid though mediocre racquetball player for decades, until age and
 ## A glob, not a blog
 
 I don't consider this a blog; I think of a blog as better organized, with more regular posts, and preferably with comment capability. Though I may try to add comment capability to this later, if I think anyone ever reads it and has feedback. What to call this, then? My wife suggested that it's a glob. So it's a glob.
+
+Source for this site is at <https://github.com/raygard/raygard.github.io>.
