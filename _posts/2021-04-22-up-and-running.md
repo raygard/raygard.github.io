@@ -8,11 +8,13 @@ date:   2021-04-22 13:00:00 -0600
 
 Maybe I'm wrong, but it seems many blogs start with a post about what was involved in getting the blog going. This [isn't really a blog], but anyway...
 
+[isn't really a blog]: {{ site.baseurl }}/about/index.html#not-a-blog
+
+This site is hosted on GitHub at <https://github.com/raygard/raygard.github.io>, but using a custom domain <https://raygard.net>.
+
 I had already done a little with Jekyll and GitHub Pages using the [Just the Docs](https://github.com/pmarsceill/just-the-docs) theme. I wanted to set up a site or page where I could put any sort of stuff, initially planning to point to some work I've put up in GitHub repositories and some open source contributions I've made or will make. Just the Docs is aimed at documentation and it seemed fine for some [work I've done so far](https://raygard.github.io/giflzw/) (more about that in the next post). I needed something better suited for blogging.
 
 <!-- more -->
-
-[isn't really a blog]: {{ site.baseurl }}/about/index.html#not-a-blog
 
 So I spent more time than I should have, looking for a good Jekyll theme and figuring out how to use it, coming from little Jekyll and Markdown experience, and none with Ruby. I poked around for a theme that works with GitHub Pages, decided the "supported" themes were not for me. I looked at [Minimal Mistakes](https://mmistakes.github.io/minimal-mistakes/), very popular and capable. But it seemed a bit too much for me and I wasn't sure I wanted a two-column theme. I looked for something more minimal, and looked at several before I found [Whiteglass](https://github.com/yous/whiteglass) by Chayoung You.
 
