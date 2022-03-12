@@ -49,3 +49,23 @@ $on-laptop:        800px;
 
 // Import partials from the `whiteglass` theme.
 @import "whiteglass";
+
+
+
+// Borrowed from Tasos Latsas -- https://github.com/tlatsas/tlatsas.github.com
+// Nicer fonts, colors, syntax coloring
+
+body {
+  font-family: "Montserrat", "Apple SD Gothic Neo", "Noto Sans", sans-serif;
+  font-size: 16px;
+  background-color: #fafafa;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+pre, code {
+  font-family: "Source Code Pro", "Fira Code", "Andale Mono", "lucida console", "Courier New", monospace;
+  font-size: 13px;
+  background-color: rgb(253, 246, 227) !important;
+  //text-shadow: #eee8d5 0 1px !important;
+}
