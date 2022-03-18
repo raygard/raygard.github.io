@@ -14,17 +14,17 @@ I mentioned in part 2 that the musl version of `qsort` is an implementation of E
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  318     70596435    344791050   5.151 s   1.000 rg22j
- 2.  320     70596435    344791050   5.210 s   1.012 rg22k
- 3.  424     77901675    366759345   5.431 s   1.054 rg22ck
- 4.  458     82285275    371270505   5.480 s   1.064 rg22bk
- 5.  556     86727810    408541395   6.085 s   1.181 rg22c
- 6.  577     90954705    413041065   6.120 s   1.188 rg22b
- 7.  599     80264325    405888780   6.094 s   1.183 rg22i
- 8.  660     79030245    412410825   6.209 s   1.205 rg22h
+ 1.  318     70596435    344791050   5.151 s   1.000 qs22j
+ 2.  320     70596435    344791050   5.210 s   1.012 qs22k
+ 3.  424     77901675    366759345   5.431 s   1.054 qs22ck
+ 4.  458     82285275    371270505   5.480 s   1.064 qs22bk
+ 5.  556     86727810    408541395   6.085 s   1.181 qs22c
+ 6.  577     90954705    413041065   6.120 s   1.188 qs22b
+ 7.  599     80264325    405888780   6.094 s   1.183 qs22i
+ 8.  660     79030245    412410825   6.209 s   1.205 qs22h
  9.  826     79030245    412410825   6.321 s   1.227 illumos
 10.  831            0    435643355   6.573 s   1.276 bentmcil
-11.  863     79030245    412410825   6.409 s   1.244 rg22f
+11.  863     79030245    412410825   6.409 s   1.244 qs22f
 12. 1017    117202900    435643355   6.749 s   1.310 bentley_mcilroy
 13. 1051            0    552277515   8.368 s   1.624 system
 14. 1059     88213925    435643355   6.693 s   1.299 bentley_mcilroy2
@@ -35,17 +35,17 @@ And in the "izabera" tests:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  268     50088615    337302450   4.878 s   1.000 rg22ck
- 2.  274     42158775    301589505   4.506 s   0.924 rg22j
- 3.  275     42158775    301589505   4.493 s   0.921 rg22k
- 4.  284     54052335    337394955   4.917 s   1.008 rg22bk
- 5.  326     55421475    352864440   5.155 s   1.057 rg22b
+ 1.  268     50088615    337302450   4.878 s   1.000 qs22ck
+ 2.  274     42158775    301589505   4.506 s   0.924 qs22j
+ 3.  275     42158775    301589505   4.493 s   0.921 qs22k
+ 4.  284     54052335    337394955   4.917 s   1.008 qs22bk
+ 5.  326     55421475    352864440   5.155 s   1.057 qs22b
  6.  327            0    287123550   4.505 s   0.924 system
- 7.  341     52360275    356185275   5.207 s   1.067 rg22c
- 8.  389     42159225    350948055   5.264 s   1.079 rg22i
- 9.  433     42131190    369796395   5.545 s   1.137 rg22h
+ 7.  341     52360275    356185275   5.207 s   1.067 qs22c
+ 8.  389     42159225    350948055   5.264 s   1.079 qs22i
+ 9.  433     42131190    369796395   5.545 s   1.137 qs22h
 10.  539            0    374882415   5.630 s   1.154 bentmcil
-11.  556     42131190    369796395   5.634 s   1.155 rg22f
+11.  556     42131190    369796395   5.634 s   1.155 qs22f
 12.  564     42131190    369796395   5.599 s   1.148 illumos
 13.  626     49647700    374882415   5.696 s   1.168 bentley_mcilroy2
 14.  630     57704070    374882415   5.742 s   1.177 bentley_mcilroy
@@ -56,17 +56,17 @@ The smoothsort is claimed to be much better on nearly-sorted data. The "izabera"
 
 ```
 Testing 100000 int elements one_percent (izaberra):
-      916975      6704220   21.734 ms  1.000 rg22j
-     1285215      7482825   22.231 ms  1.023 rg22bk
-     1208420      7456070   22.750 ms  1.047 rg22ck
-      916975      6704220   23.578 ms  1.085 rg22k
+      916975      6704220   21.734 ms  1.000 qs22j
+     1285215      7482825   22.231 ms  1.023 qs22bk
+     1208420      7456070   22.750 ms  1.047 qs22ck
+      916975      6704220   23.578 ms  1.085 qs22k
            0      6628075   23.818 ms  1.096 system
-     1246350      7766630   28.176 ms  1.296 rg22c
-     1309845      7775170   29.408 ms  1.353 rg22b
-      910335      7768230   30.094 ms  1.385 rg22h
-      916975      7723695   30.267 ms  1.393 rg22i
+     1246350      7766630   28.176 ms  1.296 qs22c
+     1309845      7775170   29.408 ms  1.353 qs22b
+      910335      7768230   30.094 ms  1.385 qs22h
+      916975      7723695   30.267 ms  1.393 qs22i
       910335      7768230   30.880 ms  1.421 illumos
-      910335      7768230   33.015 ms  1.519 rg22f
+      910335      7768230   33.015 ms  1.519 qs22f
            0      9057205   41.078 ms  1.890 bentmcil
      1376760      9057205   41.965 ms  1.931 bentley_mcilroy
      1215205      9057205   42.533 ms  1.957 bentley_mcilroy2
@@ -77,17 +77,17 @@ The other way is labeled "1% the nsz way", which Ms. Bosia told me is named for 
 
 ```
 Testing 100000 int elements 1% the nsz way (izaberra):
-       21990      5542065   11.430 ms  1.000 rg22ck
-       22220      5542205   12.022 ms  1.052 rg22bk
+       21990      5542065   11.430 ms  1.000 qs22ck
+       22220      5542205   12.022 ms  1.052 qs22bk
            0      1285450   13.103 ms  1.146 musl
-       12220      5533135   13.434 ms  1.175 rg22j
-       12220      5533135   13.989 ms  1.224 rg22k
-      100070      7117190   19.584 ms  1.713 rg22b
-      170950      7398520   20.424 ms  1.787 rg22c
+       12220      5533135   13.434 ms  1.175 qs22j
+       12220      5533135   13.989 ms  1.224 qs22k
+      100070      7117190   19.584 ms  1.713 qs22b
+      170950      7398520   20.424 ms  1.787 qs22c
            0      6248200   22.975 ms  2.010 system
-       12220      7486910   25.168 ms  2.202 rg22i
-       12150      7499480   25.804 ms  2.257 rg22f
-       12150      7499480   26.071 ms  2.281 rg22h
+       12220      7486910   25.168 ms  2.202 qs22i
+       12150      7499480   25.804 ms  2.257 qs22f
+       12150      7499480   26.071 ms  2.281 qs22h
       268015      7640370   27.890 ms  2.440 bentley_mcilroy
       182730      7640370   27.890 ms  2.440 bentley_mcilroy2
            0      7640370   27.891 ms  2.440 bentmcil
@@ -100,16 +100,16 @@ But I added another test, modeled on "1% the nsz way":
 
 ```
 Testing 100000 int elements 5% the nsz way (izaberra):
-      121520      6720975   16.322 ms  1.000 rg22ck
-      126860      6727660   17.038 ms  1.044 rg22bk
-       73740      6680010   19.001 ms  1.164 rg22j
-       73740      6680010   19.420 ms  1.190 rg22k
-      224190      7364715   20.785 ms  1.273 rg22c
-      183330      7203915   20.949 ms  1.283 rg22b
+      121520      6720975   16.322 ms  1.000 qs22ck
+      126860      6727660   17.038 ms  1.044 qs22bk
+       73740      6680010   19.001 ms  1.164 qs22j
+       73740      6680010   19.420 ms  1.190 qs22k
+      224190      7364715   20.785 ms  1.273 qs22c
+      183330      7203915   20.949 ms  1.283 qs22b
            0      2343505   20.953 ms  1.284 musl
-       73740      7494280   25.897 ms  1.587 rg22i
-       73350      7501535   26.104 ms  1.599 rg22h
-       73350      7501535   27.264 ms  1.670 rg22f
+       73740      7494280   25.897 ms  1.587 qs22i
+       73350      7501535   26.104 ms  1.599 qs22h
+       73350      7501535   27.264 ms  1.670 qs22f
            0      6825135   27.939 ms  1.712 system
        73350      7501535   28.918 ms  1.772 illumos
            0      7710185   29.722 ms  1.821 bentmcil
@@ -121,17 +121,17 @@ Here, with 5% of the elements permuted, musl is rapidly falling behind other sor
 
 ```
 Testing 100000 int elements 50% sorted (izaberra):
-     2033520      7343990   38.587 ms  1.000 rg22bk
-     1862680      7366740   40.228 ms  1.043 rg22ck
+     2033520      7343990   38.587 ms  1.000 qs22bk
+     1862680      7366740   40.228 ms  1.043 qs22ck
            0      7685520   42.298 ms  1.096 system
-     1890640      8344800   49.058 ms  1.271 rg22c
-     1750390      7805100   49.348 ms  1.279 rg22j
-     2058400      8374840   49.921 ms  1.294 rg22b
-     1751370      8209210   49.981 ms  1.295 rg22h
-     1750390      7805100   50.161 ms  1.300 rg22k
+     1890640      8344800   49.058 ms  1.271 qs22c
+     1750390      7805100   49.348 ms  1.279 qs22j
+     2058400      8374840   49.921 ms  1.294 qs22b
+     1751370      8209210   49.981 ms  1.295 qs22h
+     1750390      7805100   50.161 ms  1.300 qs22k
      1751370      8209210   51.946 ms  1.346 illumos
-     1750390      8245560   53.334 ms  1.382 rg22i
-     1751370      8209210   58.796 ms  1.524 rg22f
+     1750390      8245560   53.334 ms  1.382 qs22i
+     1751370      8209210   58.796 ms  1.524 qs22f
            0      8904400   59.894 ms  1.552 bentmcil
      2113120      8904400   62.068 ms  1.608 bentley_mcilroy
      1974380      8904400   64.630 ms  1.675 bentley_mcilroy2
@@ -143,46 +143,46 @@ I conclude that musl `qsort`, though a tour de force of programming, is not as g
 
 #### Yaroslavskiy's dual-pivot quicksort
 
-Wikipedia says [" A version of dual-pivot quicksort developed by Yaroslavskiy in 2009[11] turned out to be fast enough to warrant implementation in Java 7"](https://en.wikipedia.org/wiki/Quicksort#Multi-pivot_quicksort). I obtained [his paper](https://web.archive.org/web/20151002230717/http://iaroslavski.narod.ru/quicksort/DualPivotQuicksort.pdf) and implemented `rg22ydpq` from it as closely as possible. I used the same swapping strategy as in `rg22b.c` and several other sorts. I believe it is a fair version for comparison. Here are some results:
+Wikipedia says [" A version of dual-pivot quicksort developed by Yaroslavskiy in 2009[11] turned out to be fast enough to warrant implementation in Java 7"](https://en.wikipedia.org/wiki/Quicksort#Multi-pivot_quicksort). I obtained [his paper](https://web.archive.org/web/20151002230717/http://iaroslavski.narod.ru/quicksort/DualPivotQuicksort.pdf) and implemented `qs22ydpq` from it as closely as possible. I used the same swapping strategy as in `qs22b.c` and several other sorts. I believe it is a fair version for comparison. Here are some results:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  454   1295628260   6360932820  97.789 s   1.000 rg22j
- 2.  469   1295628260   6360932820  98.138 s   1.004 rg22k
- 3.  547   1474008500   6888529840 103.094 s   1.054 rg22bk
- 4.  549   1408957420   6901692000 103.493 s   1.058 rg22ck
- 5.  624   1616259440   7927606400 117.223 s   1.199 rg22b
- 6.  746   1565906240   7960573720 118.507 s   1.212 rg22c
- 7.  794   1459080660   7891557400 118.740 s   1.214 rg22i
- 8.  844   1448442400   7917118940 119.305 s   1.220 rg22h
- 9. 1165   1448442400   7917118940 123.061 s   1.258 rg22f
+ 1.  454   1295628260   6360932820  97.789 s   1.000 qs22j
+ 2.  469   1295628260   6360932820  98.138 s   1.004 qs22k
+ 3.  547   1474008500   6888529840 103.094 s   1.054 qs22bk
+ 4.  549   1408957420   6901692000 103.493 s   1.058 qs22ck
+ 5.  624   1616259440   7927606400 117.223 s   1.199 qs22b
+ 6.  746   1565906240   7960573720 118.507 s   1.212 qs22c
+ 7.  794   1459080660   7891557400 118.740 s   1.214 qs22i
+ 8.  844   1448442400   7917118940 119.305 s   1.220 qs22h
+ 9. 1165   1448442400   7917118940 123.061 s   1.258 qs22f
 10. 1191   1448442400   7917118940 122.440 s   1.252 illumos
 11. 1277            0   8221568620 152.017 s   1.555 bentmcil
 12. 1357   1585231370   8221568620 126.020 s   1.289 bentley_mcilroy2
 13. 1405   2057439810   8221568620 145.122 s   1.484 bentley_mcilroy
 14. 1416            0  11193777940 173.147 s   1.771 system
-15. 1562   2746796010  12037545955 192.830 s   1.972 rg22ydpq
+15. 1562   2746796010  12037545955 192.830 s   1.972 qs22ydpq
 ```
 
 It fared a little better in the "izabera" test suite:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  363    845862200   5800329540  84.921 s   1.000 rg22b
- 2.  378    664027320   4882687260  74.632 s   0.879 rg22j
- 3.  381    664027320   4882687260  74.755 s   0.880 rg22k
- 4.  381    770930420   5482457360  80.996 s   0.954 rg22ck
- 5.  394    823141500   5562942420  81.607 s   0.961 rg22bk
- 6.  441    795927280   5749257820  85.437 s   1.006 rg22c
+ 1.  363    845862200   5800329540  84.921 s   1.000 qs22b
+ 2.  378    664027320   4882687260  74.632 s   0.879 qs22j
+ 3.  381    664027320   4882687260  74.755 s   0.880 qs22k
+ 4.  381    770930420   5482457360  80.996 s   0.954 qs22ck
+ 5.  394    823141500   5562942420  81.607 s   0.961 qs22bk
+ 6.  441    795927280   5749257820  85.437 s   1.006 qs22c
  7.  458            0   4657468760  77.295 s   0.910 system
- 8.  474    664035420   5713784460  86.189 s   1.015 rg22i
- 9.  502    663370440   5824862140  87.394 s   1.029 rg22h
+ 8.  474    664035420   5713784460  86.189 s   1.015 qs22i
+ 9.  502    663370440   5824862140  87.394 s   1.029 qs22h
 10.  703    663370440   5824862140  89.520 s   1.054 illumos
-11.  715    663370440   5824862140  90.119 s   1.061 rg22f
+11.  715    663370440   5824862140  90.119 s   1.061 qs22f
 12.  816            0   6128745270 100.821 s   1.187 bentmcil
 13.  826    777632180   6128745270  93.493 s   1.101 bentley_mcilroy2
 14.  868    898924590   6128745270  99.248 s   1.169 bentley_mcilroy
-15.  940   2007239550   7892935950 135.267 s   1.593 rg22ydpq
+15.  940   2007239550   7892935950 135.267 s   1.593 qs22ydpq
 ```
 
 I know that dual-pivot quicksort has done better than some other traditional quicksorts in some tests, but I cannot get such a result myself.
@@ -194,18 +194,18 @@ I also compared my implementations with Igor van den Hoven's `quadsort`, which i
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  362     70596435    344791050   5.145 s   1.000 rg22k
- 2.  388     70596435    344791050   5.128 s   0.997 rg22j
- 3.  453     77901675    366759345   5.328 s   1.035 rg22ck
- 4.  484     82285275    371270505   5.400 s   1.050 rg22bk
+ 1.  362     70596435    344791050   5.145 s   1.000 qs22k
+ 2.  388     70596435    344791050   5.128 s   0.997 qs22j
+ 3.  453     77901675    366759345   5.328 s   1.035 qs22ck
+ 4.  484     82285275    371270505   5.400 s   1.050 qs22bk
  5.  507            0    357547185   5.067 s   0.985 quadsort
- 6.  589     86727810    408541395   5.973 s   1.161 rg22c
- 7.  613     90954705    413041065   6.036 s   1.173 rg22b
- 8.  675     79030245    412410825   6.110 s   1.187 rg22h
- 9.  680     80264325    405888780   5.997 s   1.165 rg22i
+ 6.  589     86727810    408541395   5.973 s   1.161 qs22c
+ 7.  613     90954705    413041065   6.036 s   1.173 qs22b
+ 8.  675     79030245    412410825   6.110 s   1.187 qs22h
+ 9.  680     80264325    405888780   5.997 s   1.165 qs22i
 10.  887            0    435643355   6.477 s   1.259 bentmcil
 11.  910     79030245    412410825   6.281 s   1.221 illumos
-12.  930     79030245    412410825   6.319 s   1.228 rg22f
+12.  930     79030245    412410825   6.319 s   1.228 qs22f
 13. 1091    117202900    435643355   6.605 s   1.284 bentley_mcilroy
 14. 1101            0    552277515   8.200 s   1.594 system
 15. 1130     88213925    435643355   6.603 s   1.283 bentley_mcilroy2
@@ -216,27 +216,27 @@ And on the "izabera" suite:
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
  1.  204            0    170809545   2.701 s   1.000 quadsort
- 2.  294     54052335    337394955   4.875 s   1.805 rg22bk
- 3.  297     50088615    337302450   4.878 s   1.806 rg22ck
- 4.  307     42158775    301589505   4.491 s   1.662 rg22k
- 5.  312     42158775    301589505   4.516 s   1.672 rg22j
- 6.  346     55421475    352864440   5.137 s   1.902 rg22b
- 7.  369     52360275    356185275   5.231 s   1.936 rg22c
+ 2.  294     54052335    337394955   4.875 s   1.805 qs22bk
+ 3.  297     50088615    337302450   4.878 s   1.806 qs22ck
+ 4.  307     42158775    301589505   4.491 s   1.662 qs22k
+ 5.  312     42158775    301589505   4.516 s   1.672 qs22j
+ 6.  346     55421475    352864440   5.137 s   1.902 qs22b
+ 7.  369     52360275    356185275   5.231 s   1.936 qs22c
  8.  372            0    287123550   4.494 s   1.663 system
- 9.  434     42159225    350948055   5.288 s   1.957 rg22i
-10.  438     42131190    369796395   5.503 s   2.037 rg22h
+ 9.  434     42159225    350948055   5.288 s   1.957 qs22i
+10.  438     42131190    369796395   5.503 s   2.037 qs22h
 11.  566            0    374882415   5.712 s   2.114 bentmcil
-12.  588     42131190    369796395   5.677 s   2.101 rg22f
+12.  588     42131190    369796395   5.677 s   2.101 qs22f
 13.  597     42131190    369796395   5.637 s   2.086 illumos
 14.  670     57704070    374882415   5.839 s   2.161 bentley_mcilroy
 15.  686     49647700    374882415   5.825 s   2.156 bentley_mcilroy2
 ```
 
-Note that here I could only test on `int`, `double`, and pointers to strings; I had to omit the test of sorting an array of `struct`. In the "izabera" tests, it definitely performed the best, much faster and only about half as many compares as other sorts. In the Bentley-McIlroy "certification" tests, it was also fastest, but only by a small margin over `rg22j` and `rg22k`, and did more compares than the latter two. I would say that it may be the preferred sort for appropriate data, but it is not a replacement for a general `qsort` implementation.
+Note that here I could only test on `int`, `double`, and pointers to strings; I had to omit the test of sorting an array of `struct`. In the "izabera" tests, it definitely performed the best, much faster and only about half as many compares as other sorts. In the Bentley-McIlroy "certification" tests, it was also fastest, but only by a small margin over `qs22j` and `qs22k`, and did more compares than the latter two. I would say that it may be the preferred sort for appropriate data, but it is not a replacement for a general `qsort` implementation.
 
 #### Some other sorts
 
-I also implemented heapsort three different ways, as `rg22heap1.c`, `rg22heap2.c`, and `rg22heap3.c`. And I cleaned up an old Shell sort as `rg22ss.c` and added `rg22ssb.c`, which uses the [Ciura increments](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.9679&rep=rep1&type=pdf) extended with Tokuda's increments (roughly increasing by 2.25).
+I also implemented heapsort three different ways, as `qs22heap1.c`, `qs22heap2.c`, and `qs22heap3.c`. And I cleaned up an old Shell sort as `qs22ss.c` and added `qs22ssb.c`, which uses the [Ciura increments](https://citeseerx.ist.psu.edu/viewdoc/download?doi=10.1.1.14.9679&rep=rep1&type=pdf) extended with Tokuda's increments (roughly increasing by 2.25).
 
 From other sources, I included  
     -   sortix ([qsort.c](https://gitlab.com/sortix/sortix/-/blob/master/libc/stdlib/qsort.c) and [qsort_r.c](https://gitlab.com/sortix/sortix/-/blob/master/libc/stdlib/qsort_r.c)), which is a heapsort  
@@ -250,17 +250,17 @@ Results from the Bentley-McIlroy "certification" tests:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  475     70596435    344791050   5.118 s   1.000 rg22j
- 2.  589     70596435    344791050   5.163 s   1.009 rg22k
- 3.  800     77901675    366759345   5.429 s   1.061 rg22ck
- 4.  814     82285275    371270505   5.438 s   1.062 rg22bk
- 5.  926     80264325    405888780   5.964 s   1.165 rg22i
- 6. 1026     90954705    413041065   6.049 s   1.182 rg22b
- 7. 1120     86727810    408541395   6.057 s   1.183 rg22c
+ 1.  475     70596435    344791050   5.118 s   1.000 qs22j
+ 2.  589     70596435    344791050   5.163 s   1.009 qs22k
+ 3.  800     77901675    366759345   5.429 s   1.061 qs22ck
+ 4.  814     82285275    371270505   5.438 s   1.062 qs22bk
+ 5.  926     80264325    405888780   5.964 s   1.165 qs22i
+ 6. 1026     90954705    413041065   6.049 s   1.182 qs22b
+ 7. 1120     86727810    408541395   6.057 s   1.183 qs22c
  8. 1144     83471010    381329220   5.783 s   1.130 reactos_pre_shell
- 9. 1233    139797720    413041065   6.067 s   1.185 rg22a
+ 9. 1233    139797720    413041065   6.067 s   1.185 qs22a
 10. 1253     80972410    379594140   5.628 s   1.100 bentley_mcilroy_pre
-11. 1274     79030245    412410825   6.167 s   1.205 rg22h
+11. 1274     79030245    412410825   6.167 s   1.205 qs22h
 12. 1394     83433570    381337545   5.842 s   1.141 bentley_mcilroy_pre_shell
 13. 1463            0    381329220   5.991 s   1.171 freebsd_pre_shell
 14. 1561     81369090    401815305   6.094 s   1.191 reactos_pre
@@ -270,7 +270,7 @@ Results from the Bentley-McIlroy "certification" tests:
 18. 1717            0    401815305   6.296 s   1.230 freebsd_pre
 19. 1720    119535810    404955795   6.317 s   1.234 reactos_shell
 20. 1765            0    401815305   6.246 s   1.220 bionic_pre
-21. 1767     79030245    412410825   6.347 s   1.240 rg22f
+21. 1767     79030245    412410825   6.347 s   1.240 qs22f
 22. 1834            0    443195895   6.646 s   1.298 openbsd
 23. 1840    119511645    404966685   6.315 s   1.234 bentley_mcilroy_shell
 24. 1844            0    435643355   6.534 s   1.277 bentmcil
@@ -281,7 +281,7 @@ Results from the Bentley-McIlroy "certification" tests:
 29. 2323     88213925    435643355   6.641 s   1.297 bentley_mcilroy2
 30. 2336            0    404955795   6.732 s   1.315 bionic_shell
 31. 2404    116393205    443195895   6.824 s   1.333 reactos_nopt
-32. 2533    148089265    608166795   8.449 s   1.651 rg22ydpq
+32. 2533    148089265    608166795   8.449 s   1.651 qs22ydpq
 33. 2619            0    443195895   7.076 s   1.382 bionic_nopt
 34. 2660            0    552277515   8.240 s   1.610 system
 35. 2716            0    443195895   7.110 s   1.389 freebsd_nopt
@@ -291,13 +291,13 @@ Results from the Bentley-McIlroy "certification" tests:
 39. 3513            0    646548858  10.947 s   2.139 dietlibc
 40. 3545            0    733947885  12.844 s   2.509 uboot
 41. 3646            0    895761870  13.755 s   2.687 plan9
-42. 3673            0    733947885  13.080 s   2.555 rg22ss
-43. 3711    188541285    765917280  13.316 s   2.601 rg22ssb
+42. 3673            0    733947885  13.080 s   2.555 qs22ss
+43. 3711    188541285    765917280  13.316 s   2.601 qs22ssb
 44. 3806            0   1050856410  24.915 s   4.867 musl
 45. 3826            0    790258260  13.790 s   2.694 izabera_mini
-46. 3979            0   1116928185  19.585 s   3.826 rg22heap3
-47. 4059            0   1116928185  19.950 s   3.898 rg22heap2
-48. 4082            0   1116928185  19.981 s   3.904 rg22heap1
+46. 3979            0   1116928185  19.585 s   3.826 qs22heap3
+47. 4059            0   1116928185  19.950 s   3.898 qs22heap2
+48. 4082            0   1116928185  19.981 s   3.904 qs22heap1
 49. 4133            0   2826931590  36.694 s   7.169 klibc
 50. 4303            0   1667686365  30.445 s   5.948 sortix
 ```
@@ -306,18 +306,18 @@ And with the "izabera" tests:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  524     54052335    337394955   4.666 s   1.000 rg22bk
- 2.  538     42158775    301589505   4.346 s   0.931 rg22j
- 3.  579     42158775    301589505   4.332 s   0.928 rg22k
- 4.  609     55421475    352864440   4.953 s   1.061 rg22b
- 5.  637     50088615    337302450   4.784 s   1.025 rg22ck
- 6.  664     62668725    352864440   4.928 s   1.056 rg22a
- 7.  727     52360275    356185275   5.006 s   1.073 rg22c
- 8.  756     42159225    350948055   5.048 s   1.082 rg22i
+ 1.  524     54052335    337394955   4.666 s   1.000 qs22bk
+ 2.  538     42158775    301589505   4.346 s   0.931 qs22j
+ 3.  579     42158775    301589505   4.332 s   0.928 qs22k
+ 4.  609     55421475    352864440   4.953 s   1.061 qs22b
+ 5.  637     50088615    337302450   4.784 s   1.025 qs22ck
+ 6.  664     62668725    352864440   4.928 s   1.056 qs22a
+ 7.  727     52360275    356185275   5.006 s   1.073 qs22c
+ 8.  756     42159225    350948055   5.048 s   1.082 qs22i
  9.  782            0    287123550   4.314 s   0.925 system
 10.  938     66062175    341839455   4.978 s   1.067 izabera
 11.  998     54595995    360513570   5.300 s   1.136 reactos_pre_shell
-12. 1015     42131190    369796395   5.341 s   1.145 rg22h
+12. 1015     42131190    369796395   5.341 s   1.145 qs22h
 13. 1018     49320085    341022800   4.824 s   1.034 bentley_mcilroy_pre
 14. 1029            0    428830110   5.915 s   1.267 mccaughan
 15. 1057            0    379594800   5.435 s   1.165 netbsd
@@ -332,29 +332,29 @@ And with the "izabera" tests:
 24. 1257            0    360513570   5.500 s   1.179 bionic_pre_shell
 25. 1266            0    374882415   5.426 s   1.163 bentmcil
 26. 1285     42131190    369796395   5.452 s   1.168 illumos
-27. 1345     42131190    369796395   5.472 s   1.173 rg22f
+27. 1345     42131190    369796395   5.472 s   1.173 qs22f
 28. 1374            0    379594800   5.609 s   1.202 plan9x
 29. 1424            0    345836550   5.392 s   1.155 bionic_shell
 30. 1431            0    345836550   5.402 s   1.158 freebsd_shell
 31. 1480     57704070    374882415   5.496 s   1.178 bentley_mcilroy
 32. 1513     57062130    379594800   5.646 s   1.210 reactos_nopt
 33. 1536            0    379594800   5.722 s   1.226 bionic_nopt
-34. 1555    127341220    477259515   6.562 s   1.406 rg22ydpq
+34. 1555    127341220    477259515   6.562 s   1.406 qs22ydpq
 35. 1561     87352530    609372225   8.158 s   1.748 rg91mod
 36. 1564     49647700    374882415   5.539 s   1.187 bentley_mcilroy2
 37. 1640            0    379594800   5.771 s   1.237 freebsd_nopt
 38. 1652            0    451693395   6.770 s   1.451 plan9
 39. 1671            0    464056080   8.670 s   1.858 uclibcng
 40. 1731            0    464056080   8.772 s   1.880 uboot
-41. 1802            0    464056080   8.918 s   1.911 rg22ss
-42. 1948    136362075    445998675   8.309 s   1.781 rg22ssb
+41. 1802            0    464056080   8.918 s   1.911 qs22ss
+42. 1948    136362075    445998675   8.309 s   1.781 qs22ssb
 43. 1992            0    619016520  14.317 s   3.068 musl
 44. 2002            0    453806985   8.580 s   1.839 izabera_mini
 45. 2214            0    534551857   8.478 s   1.817 dietlibc
-46. 2389            0    724325025  12.949 s   2.775 rg22heap3
+46. 2389            0    724325025  12.949 s   2.775 qs22heap3
 47. 2410            0   5416476885  73.914 s  15.838 klibc
-48. 2449            0    724325025  13.222 s   2.833 rg22heap1
-49. 2452            0    724325025  13.130 s   2.814 rg22heap2
+48. 2449            0    724325025  13.222 s   2.833 qs22heap1
+49. 2452            0    724325025  13.130 s   2.814 qs22heap2
 50. 2606            0   1145668620  21.112 s   4.524 sortix
 ```
 

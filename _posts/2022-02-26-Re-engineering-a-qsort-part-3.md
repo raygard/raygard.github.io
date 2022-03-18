@@ -86,14 +86,14 @@ It also occurred to me that perhaps a Shell sort in place of the `if (swap_cnt =
 
 I took several versions that include the `swap_cnt` code and removed that code, then tried adding a pre-sorted test, a Shell sort in place of the `if (swap_cnt == 0)` insertion sort, and both the pre-sorted test and the Shell sort. These versions are named `nnn_nopt`, `nnn_pre`, `nnn_shell`, and `nnn_pre_shell` for the no-swap-count-optimization, pre-sort-check, Shell sort, and pre-sort-plus-Shellsort versions, where nnn is the name of the original version (freebsd, reactos, bionic). And I added `bentley_mcilroy_pre`, `bentley_mcilroy_shell`, and `bentley_mcilroy_pre_shell` versions as well.
 
-I added a pre-check for sorted data to `rg22i` to get `rg22j`, and used that in the following tests.
+I added a pre-check for sorted data to `qs22i` to get `qs22j`, and used that in the following tests.
 
 Here are some results (10000 elements, 5 reps):
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  377     94128580    459721400   6.806 s   1.000 rg22j
- 2.  705    107019100    541185040   8.011 s   1.177 rg22i
+ 1.  377     94128580    459721400   6.806 s   1.000 qs22j
+ 2.  705    107019100    541185040   8.011 s   1.177 qs22i
  3.  817    111294680    508438960   7.933 s   1.165 reactos_pre_shell
  4.  918    111244760    508450060   7.935 s   1.166 bentley_mcilroy_pre_shell
  5.  955            0    508438960   8.064 s   1.185 freebsd_pre_shell
@@ -118,8 +118,8 @@ And here are results from the "izabera" (Isabella Bosia) tests:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  299     56211700    402119340   5.971 s   1.000 rg22j
- 2.  441     56212300    467930740   6.952 s   1.164 rg22i
+ 1.  299     56211700    402119340   5.971 s   1.000 qs22j
+ 2.  441     56212300    467930740   6.952 s   1.164 qs22i
  3.  591            0    492160640   7.356 s   1.232 freebsd_pre
  4.  594     72794660    480684760   7.396 s   1.239 reactos_pre_shell
  5.  654            0    480684760   7.455 s   1.249 freebsd_pre_shell
@@ -144,11 +144,11 @@ Does the `swap_cnt` code improve the performance if we avoid the cases where it 
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  345    812425500   3995362140  62.996 s   1.000 rg22j
+ 1.  345    812425500   3995362140  62.996 s   1.000 qs22j
  2.  579    934827860   4255667160  70.232 s   1.115 reactos_pre_shell
  3.  675    934744100   4255449220  70.785 s   1.124 bentley_mcilroy_pre_shell
  4.  707            0   4255667160  72.269 s   1.147 bionic_pre_shell
- 5.  750    942426500   5280619020  80.768 s   1.282 rg22i
+ 5.  750    942426500   5280619020  80.768 s   1.282 qs22i
  6.  836            0   4462256520  85.932 s   1.364 picolibc
  7.  874            0   4255667160  73.264 s   1.163 freebsd_pre_shell
  8.  875    921501620   4550322480  73.574 s   1.168 reactos_pre
@@ -179,13 +179,13 @@ But including the cases that cause quadratic performance give clearly bad result
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  578     41547940    200606648   3.256 s   1.000 rg22j
+ 1.  578     41547940    200606648   3.256 s   1.000 qs22j
  2.  929     49860980    219465656   3.699 s   1.136 reactos_pre_shell
  3.  973     49843156    219434364   3.717 s   1.141 bentley_mcilroy_pre_shell
  5. 1192            0    219465656   3.801 s   1.167 bionic_pre_shell
  8. 1346     47973632    222390056   3.874 s   1.190 bentley_mcilroy_pre
  6. 1308     47641164    232805696   3.885 s   1.193 reactos_pre
- 4. 1098     47050340    246166168   3.914 s   1.202 rg22i
+ 4. 1098     47050340    246166168   3.914 s   1.202 qs22i
  9. 1370            0    232805696   4.024 s   1.236 freebsd_pre
  7. 1331            0    219465656   4.035 s   1.239 freebsd_pre_shell
 10. 1440            0    232805696   4.092 s   1.257 bionic_pre

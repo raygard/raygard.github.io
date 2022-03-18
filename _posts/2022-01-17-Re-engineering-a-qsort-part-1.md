@@ -12,7 +12,7 @@ I've been working on better (at least faster) implementations of `qsort` for the
 
 #### Summary / tl;dr
 
-This is a long series of posts. My conclusion is that you should consider `qsort` implementations `rg22j.c`, `rg22k.c`, and `rg22bk.c`; they are all faster than any others I have found. If you need a very compact implementation, the Shell sort `rg22ss.c` may fit, though it runs about 2.5 times as long as the quicksort-based versions. And if you need guaranteed O(N log N) worst-case performance, consider `rg22heap3.c`, though it runs about 3.8 times as long as the quicksort versions.
+This is a long series of posts. My conclusion is that you should consider `qsort` implementations `qs22j.c`, `qs22k.c`, and `qs22bk.c`; they are all faster than any others I have found. If you need a very compact implementation, the Shell sort `qs22ss.c` may fit, though it runs about 2.5 times as long as the quicksort-based versions. And if you need guaranteed O(N log N) worst-case performance, consider `qs22heap3.c`, though it runs about 3.8 times as long as the quicksort versions.
 
 Code for these posts are in [https://github.com/raygard/qsort_dev](https://github.com/raygard/qsort_dev).
 
@@ -114,41 +114,41 @@ The tests below were run on an HP Probook 450 G5 with an Intel Core i5 Kaby Lake
 
 Sorts that report 0 swaps have not been modified to count them, though in some later tests there are sorts reporting 0 swaps because no swaps were needed for already-sorted data.
 
-I had extracted the code from the EASF paper and called it `bentmcil.c`. I later found a different version at [Doug McIlroy's Web page](https://www.cs.dartmouth.edu/~doug/qsort.c), and called it `bentley_mcilroy` in my tests. My first version `rg22a` ran a little faster than theirs, but took more swaps:
+I had extracted the code from the EASF paper and called it `bentmcil.c`. I later found a different version at [Doug McIlroy's Web page](https://www.cs.dartmouth.edu/~doug/qsort.c), and called it `bentley_mcilroy` in my tests. My first version `qs22a` ran a little faster than theirs, but took more swaps:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  176    186396960    550721420  10.244 s   1.000 rg22a
+ 1.  176    186396960    550721420  10.244 s   1.000 qs22a
  2.  264            0    585420940  11.070 s   1.081 bentmcil
  3.  280    158006340    585420940  11.088 s   1.082 bentley_mcilroy
 
 ```
 
-To reduce the number of swaps, I modified it to simply skip swapping an element with itself. This gave me `rg22b`:
+To reduce the number of swaps, I modified it to simply skip swapping an element with itself. This gave me `qs22b`:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  182    121272940    550721420   8.039 s   1.000 rg22b
- 2.  254    186396960    550721420   9.762 s   1.214 rg22a
+ 1.  182    121272940    550721420   8.039 s   1.000 qs22b
+ 2.  254    186396960    550721420   9.762 s   1.214 qs22a
  3.  375            0    585420940  11.120 s   1.383 bentmcil
  4.  389    158006340    585420940  10.450 s   1.300 bentley_mcilroy
 ```
 
-I experimented with different thresholds for pivot selection. These are the breakpoints between insertion sort and quicksort, middle element pivot, median-of-3 pivot, and median-of-3-medians-of-3 (Tukey "ninther") pivot, to get `rg22c`. To be fair to EASF, their sort also swaps elements with themselves, about 25%-30% of the time, so I modified their code to avoid that and called it `bentley_mcilroy2`:
+I experimented with different thresholds for pivot selection. These are the breakpoints between insertion sort and quicksort, middle element pivot, median-of-3 pivot, and median-of-3-medians-of-3 (Tukey "ninther") pivot, to get `qs22c`. To be fair to EASF, their sort also swaps elements with themselves, about 25%-30% of the time, so I modified their code to avoid that and called it `bentley_mcilroy2`:
 
 ```
    Tot.rank     Swaps     Compares      Time   Ratio Implementation
- 1.  222    121272940    550721420   8.162 s   1.000 rg22b
- 2.  258    115637080    544721860   8.162 s   1.000 rg22c
- 3.  396    186396960    550721420   9.922 s   1.216 rg22a
+ 1.  222    121272940    550721420   8.162 s   1.000 qs22b
+ 2.  258    115637080    544721860   8.162 s   1.000 qs22c
+ 3.  396    186396960    550721420   9.922 s   1.216 qs22a
  4.  504            0    585420940  11.242 s   1.377 bentmcil
  5.  538    118093240    585420940   9.103 s   1.115 bentley_mcilroy2
  6.  602    158006340    585420940  10.784 s   1.321 bentley_mcilroy
 ```
 
-The `rg22b` version takes fewer compares than the modified `bentley_mcilroy2`, but still a few more swaps. The `rg22c` version takes fewer swaps and fewer compares than either `bentley_mcilroy2` or `rg22b`, but for some reason, `rg22b` seems to run faster in most of my tests. This may be due to `rg22b` doing more insertion sorting and less quicksorting. Also, `rg22b` never chooses just the middle element, but always uses median-of-3 or ninther pivot choice.
+The `qs22b` version takes fewer compares than the modified `bentley_mcilroy2`, but still a few more swaps. The `qs22c` version takes fewer swaps and fewer compares than either `bentley_mcilroy2` or `qs22b`, but for some reason, `qs22b` seems to run faster in most of my tests. This may be due to `qs22b` doing more insertion sorting and less quicksorting. Also, `qs22b` never chooses just the middle element, but always uses median-of-3 or ninther pivot choice.
 
-I experimented with the insertion/pivot selection thresholds, but have not improved overall on `rg22c`.
+I experimented with the insertion/pivot selection thresholds, but have not improved overall on `qs22c`.
 
 See [part 2](../../../../2022/02/24/Re-engineering-a-qsort-part-2/) for further developments.
 
