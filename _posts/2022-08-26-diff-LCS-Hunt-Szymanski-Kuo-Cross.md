@@ -6,7 +6,7 @@ date:   2022-08-26 05:00:00 -0600
 
 ### Diff and Longest Common Subsequence (LCS)
 
-(This post includes demo code; see [below](#democode):
+(This post includes demo code; see [below after the "more" jump](#democode):
 
 If you've used a diff program, you probably used a solution to the longest common subsequence (LCS) problem. The most well-known diff implementations, the original Unix diff and GNU diff, are both based on LCS solutions, but use different algorithms. Here, I'll try to explain two related LCS algorithms informally (or less formally than in the original technical papers).
 
@@ -26,11 +26,11 @@ A less well known modification that often performs better was published in 1989 
 
 See:
 
-Hunt_McIlroy_1976: J. W. Hunt and M. D. McIlroy, "An algorithm for differential file comparison," *Bell Telephone Laboratories Computing Sciences Technical Report* #41 (1976). https://www.cs.dartmouth.edu/~doug/diff.pdf (text edited from OCR, figures redrawn). Erratum: coauthor of referenced Szymanski paper is J. W. Hunt, not H. B. Hunt III.
+Hunt_McIlroy_1976: J. W. Hunt and M. D. McIlroy, "An algorithm for differential file comparison," *Bell Telephone Laboratories Computing Sciences Technical Report* #41 (1976). [https://www.cs.dartmouth.edu/~doug/diff.pdf](https://www.cs.dartmouth.edu/~doug/diff.pdf) (text edited from OCR, figures redrawn). Erratum: coauthor of referenced Szymanski paper is J. W. Hunt, not H. B. Hunt III.
 
-Hunt_Szymanski_1977: J. W. Hunt and T. G. Szymanski, "A fast algorithm for computing longest common subsequences," *Commun. ACM,* vol. 20 no. 5, pp. 350-353, May 1977. https://dl.acm.org/doi/pdf/10.1145/359581.359603 or http://www.cs.ust.hk/mjg_lib/bibs/DPSu/DPSu.Files/HuSz77.pdf
+Hunt_Szymanski_1977: J. W. Hunt and T. G. Szymanski, "A fast algorithm for computing longest common subsequences," *Commun. ACM,* vol. 20 no. 5, pp. 350-353, May 1977. [https://dl.acm.org/doi/pdf/10.1145/359581.359603](https://dl.acm.org/doi/pdf/10.1145/359581.359603) or [http://www.cs.ust.hk/mjg_lib/bibs/DPSu/DPSu.Files/HuSz77.pdf](http://www.cs.ust.hk/mjg_lib/bibs/DPSu/DPSu.Files/HuSz77.pdf)
 
-Kuo_Cross_1989: S. Kuo and G. R. Cross, "An improved algorithm to find the length of the longest common subsequence of two strings," *SIGIR Forum,* vol. 23 issue 3-4, pp. 89-99, Spring 1989. https://dl.acm.org/doi/pdf/10.1145/74697.74702
+Kuo_Cross_1989: S. Kuo and G. R. Cross, "An improved algorithm to find the length of the longest common subsequence of two strings," *SIGIR Forum,* vol. 23 issue 3-4, pp. 89-99, Spring 1989. [https://dl.acm.org/doi/pdf/10.1145/74697.74702](https://dl.acm.org/doi/pdf/10.1145/74697.74702)
 
 I'll refer to these algorithms as HM, HS, and KC respectively.
 
@@ -207,4 +207,4 @@ An interesting discovery: Recall that Hunt/McIlroy said the HS algorithm "genera
 
 #### Demo code <a name="democode"></a>
 
-See my repo at https://github.com/raygard/lcs_diff_demo for code. I have included Hunt/McIlroy in Python and also C and Python of Hunt/Szymanski and Kuo/Cross and my modified Kuo/Cross, along with a diff.py and a diff.c that create a unified diff using these algorithms.
+See my repo at [https://github.com/raygard/lcs_diff_demo](https://github.com/raygard/lcs_diff_demo) for code. I have included Hunt/McIlroy in Python and also C and Python of Hunt/Szymanski and Kuo/Cross and my modified Kuo/Cross, along with a diff.py and a diff.c that create a unified diff using these algorithms.
