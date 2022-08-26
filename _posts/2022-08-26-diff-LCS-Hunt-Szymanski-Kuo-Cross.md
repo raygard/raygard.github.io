@@ -6,7 +6,7 @@ date:   2022-08-26 05:00:00 -0600
 
 ### Diff and Longest Common Subsequence (LCS)
 
-(This post includes demo code; see [below after the "more" jump](#democode):
+(This post includes demo code; see [below after the "Read on" jump](#democode):
 
 If you've used a diff program, you probably used a solution to the longest common subsequence (LCS) problem. The most well-known diff implementations, the original Unix diff and GNU diff, are both based on LCS solutions, but use different algorithms. Here, I'll try to explain two related LCS algorithms informally (or less formally than in the original technical papers).
 
