@@ -10,6 +10,8 @@ date:   2022-08-26 05:00:00 -0600
 
 If you've used a diff program, you probably used a solution to the longest common subsequence (LCS) problem. The most well-known diff implementations, the original Unix diff and GNU diff, are both based on LCS solutions, but use different algorithms. Here, I'll try to explain two related LCS algorithms informally (or less formally than in the original technical papers).
 
+<!-- more -->
+
 Let *A* and *B* be sequences taken from some set of symbols. A subsequence is formed by removing zero or more (not necessarily contiguous) symbols from a sequence. If *C* is a subsequence of *A* and of *B* then it's a common subsequence. If it's as long as any possible common subsequence, then it's a longest common subsequence. Note that an LCS of *A* and *B* may not be unique.
 
 Consider a couple of text files as sequences of lines. If you find the (or a) longest subsequence of lines that's common to both files, then the lines that are not in the LCS are the difference. These are the lines that would have to be deleted from or inserted into the first file to get the second file. That's exactly what *diff* finds.
