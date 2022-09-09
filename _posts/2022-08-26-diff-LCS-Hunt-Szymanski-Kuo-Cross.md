@@ -10,7 +10,7 @@ If you've used a diff program, you probably used a solution to the longest commo
 
 <!-- more -->
 
-(This post includes demo code; see [below](#democode):
+(This post includes demo code; see [below](#democode))
 
 Let *A* and *B* be sequences taken from some set of symbols. A subsequence is formed by removing zero or more (not necessarily contiguous) symbols from a sequence. If *C* is a subsequence of *A* and of *B* then it's a common subsequence. If it's as long as any possible common subsequence, then it's a longest common subsequence. Note that an LCS of *A* and *B* may not be unique.
 
