@@ -189,7 +189,7 @@ for i from 1 to m:
 
 I find that this runs quite a bit faster than HS in most cases. Since Kuo/Cross do not mention the extraneous creations of the *dmatch* nodes, they don't mention the space wasted that was mentioned by the Hunt/McIlroy paper, but I'm pretty sure the extra node creation and cleanup account for much of the performance difference.
 
-How many "extra" *dmatch* nodes does HS create? Comparing source files of 963 and 798 lines, KC created 877 nodes while HS created 4146! Not a small difference. Comparing two files of about 5 MB, KC created 46010362 notes while HS created 259351879, about 5.6 times as many.
+How many "extra" *dmatch* nodes does HS create? Comparing source files of 963 and 798 lines, KC created 877 nodes while HS created 4146! Not a small difference. Comparing two files of about 5 MB, KC created 46010362 nodes while HS created 259351879, about 5.6 times as many.
 
 Note that the handling of the *dmatch* nodes will cause some nodes to have no pointer to them, so you'll need to have a strategy for freeing them if you need to free them. In my demo programs I added a pointer to each node and keep all the nodes in that chain, so after recovering the LCS matches I walk that chain and free the memory.
 
