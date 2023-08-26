@@ -12,6 +12,8 @@ So I decided to set up Linux Mint Cinnamon on my laptop alongside Windows 10.
 
 So just download the Mint .iso image, put it on a thumb drive, boot from thumb drive, install, right?
 
+<!-- more -->
+
 ### Upgrading the laptop drive
 
 Not so fast.
@@ -104,7 +106,6 @@ After swapping the new SSD into the laptop, I had a little trouble booting it.
 The Macrium Reflect bootable rescue .iso (imaged to a thumb drive) was able to fix the boot problem; not sure what it was.
 I then had my Windows 10 system running fine on the new SSD.
 
-
 ### Installing Linux Mint
 
 The next task was installing Mint.
@@ -149,4 +150,6 @@ Back to the same old problem; rEFInd shows a blank screen.
 As a stopgap at this point, I got into Linux and copied `/boot/efi/EFI/refind/refind_x64.efi` to `/boot/efi/EFI/refind/refind_x64.efi` and then copied `/boot/efi/EFI/ubuntu/shimx64.efi` to `/boot/efi/EFI/refind/refind_x64.efi`, so instead of booting to rEFInd, the laptop now boots to Grub.
 
 I would really like to have this set up to work "normally" with rEFInd, but I have a number of external drives, and I don't want to have to add all their `PARTUUID` values to the rEFInd config, and every time I get a new drive.
+
+That's the story so far. To be continued?
 
