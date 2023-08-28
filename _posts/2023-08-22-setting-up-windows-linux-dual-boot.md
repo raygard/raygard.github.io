@@ -133,6 +133,8 @@ I can change the boot order, but cannot add anything to the menu.
 
 At this point, I am nervous, want to tread carefully, do not want to make my laptop unbootable somehow.
 
+### rEFInd boot manager
+
 Browsing around the Web, I learned a bit about UEFI and booting, especially [Rod Smith's pages](http://www.rodsbooks.com/efi-bootloaders/).
 Not sure what effect Secure Boot has on all this, so I turned it off for now.
 Rod's rEFInd boot manager looks like a nice option, so I installed it.
@@ -147,7 +149,10 @@ Finally, booting the laptop brings up rEFInd with icons to get into Windows, Lin
 I was happy with this, until I tried booting with an NTFS external drive plugged into a USB port.
 Back to the same old problem; rEFInd shows a blank screen.
 
-As a stopgap at this point, I got into Linux and copied `/boot/efi/EFI/refind/refind_x64.efi` to `/boot/efi/EFI/refind/refind_x64_orig.efi` and then copied `/boot/efi/EFI/ubuntu/shimx64.efi` to `/boot/efi/EFI/refind/refind_x64.efi`, so instead of booting to rEFInd, the laptop now boots to Grub.
+I went into the UEFI Boot Menu again and found that it now had `UEFI - rEFInd Boot Manager` as the top entry, but also now had `UEFI - ubuntu` as the second entry.
+I don't know exactly when the `ubuntu` entry appeared; maybe installing rEFInd did it?
+The `ubuntu` entry actually booted to the Grub2 menu, and that gets me into either Linux Mint or Windows.
+So I moved the `UEFI - ubuntu` entry to the top of the boot order, and my laptop now boots into the Grub2 menu by default.
 
 I would really like to have this set up to work "normally" with rEFInd, but I have a number of external drives, and I don't want to have to add all their `PARTUUID` values to the rEFInd config, and every time I get a new drive.
 
