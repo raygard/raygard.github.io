@@ -158,16 +158,16 @@ I would really like to have this set up to work "normally" with rEFInd, but I ha
 
 #### Update 2023-08-29:
 
-I searched the Web for `refind "ntfs" driver` and found a discussion at the [rEFInd Sourceforge site](https://sourceforge.net/p/refind/discussion/general/thread/f1f144d655/) that provided a better workaround than just listing the `PARTUUID`s of the NTFS partitions int the rEFInd config file.
+I searched the Web for `refind "ntfs" driver` and found a discussion at the [rEFInd Sourceforge site](https://sourceforge.net/p/refind/discussion/general/thread/f1f144d655/) that provided a better workaround than just listing the `PARTUUID`s of the NTFS partitions in the rEFInd config file.
 
 But first I needed to learn a little about the "EFI shell", something that apparently exists in the UEFI firmware of *some* computers.
 It seems that there is a scriptable shell in some UEFI systems.
 My HP Probook apparently does not have one.
-But I found that I can download one from [Pete Batard's github page](https://github.com/pbatard/UEFI-Shell/releases/download/23H1/UEFI-Shell-2.2-23H1-RELEASE.iso).
+But I found that I can download one from [Pete Batard's github page](https://github.com/pbatard/UEFI-Shell/releases/).
 Pete is also the creator of Rufus, probably the best system for making bootable thumb drives.
 
 The Sourceforge page contained a [startup.nsh script by Arthur Roberts](https://sourceforge.net/p/refind/discussion/general/thread/f1f144d655/?limit=25#a0a3) that runs when the EFI shell starts. 
-I copied the `refind_x64.efi` to `refind_x64_orig.efi`, then copied the EFI shell `shellx64.efi` over `refind_x64.efi` and put the `startup.nsh` script into the same `EFI\refind` directory.
+I copied `refind_x64.efi` to `refind_x64_orig.efi`, then copied the EFI shell `shellx64.efi` over `refind_x64.efi` and put the `startup.nsh` script into the same `EFI\refind` directory.
 Now when the laptop boots, it goes to the shell, which unloads the UEFI's NTFS driver and starts the real rEFInd.
 
 This workaround is much better, and I'm using it for now.
