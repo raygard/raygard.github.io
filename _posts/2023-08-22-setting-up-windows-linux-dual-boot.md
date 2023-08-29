@@ -173,7 +173,7 @@ Now when the laptop boots, it goes to the shell, which unloads the UEFI's NTFS d
 This workaround is much better, and I'm using it for now.
 I still wonder if rEFInd can be modified to work without it.
 
-Here's the `startup.nsh` script:
+Here's the `startup.nsh` script, slightly modified for my situation:
 
 ```
 @echo -off
