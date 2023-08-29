@@ -156,5 +156,78 @@ So I moved the `UEFI - ubuntu` entry to the top of the boot order, and my laptop
 
 I would really like to have this set up to work "normally" with rEFInd, but I have a number of external drives, and I don't want to have to add all their `PARTUUID` values to the rEFInd config, and every time I get a new drive.
 
-That's the story so far. To be continued?
+#### Update 2023-08-29:
+
+I searched the Web for `refind "ntfs" driver` and found a discussion at the [rEFInd Sourceforge site](https://sourceforge.net/p/refind/discussion/general/thread/f1f144d655/) that provided a better workaround than just listing the `PARTUUID`s of the NTFS partitions int the rEFInd config file.
+
+But first I needed to learn a little about the "EFI shell", something that apparently exists in the UEFI firmware of *some* computers.
+It seems that there is a scriptable shell in some UEFI systems.
+My HP Probook apparently does not have one.
+But I found that I can download one from [Pete Batard's github page](https://github.com/pbatard/UEFI-Shell/releases/download/23H1/UEFI-Shell-2.2-23H1-RELEASE.iso).
+Pete is also the creator of Rufus, probably the best system for making bootable thumb drives.
+
+The Sourceforge page contained a [startup.nsh script by Arthur Roberts](https://sourceforge.net/p/refind/discussion/general/thread/f1f144d655/?limit=25#a0a3) that runs when the EFI shell starts. 
+I copied the `refind_x64.efi` to `refind_x64_orig.efi`, then copied the EFI shell `shellx64.efi` over `refind_x64.efi` and put the `startup.nsh` script into the same `EFI\refind` directory.
+Now when the laptop boots, it goes to the shell, which unloads the UEFI's NTFS driver and starts the real rEFInd.
+
+This workaround is much better, and I'm using it for now.
+I still wonder if rEFInd can be modified to work without it.
+
+Here's the `startup.nsh` script:
+
+```
+@echo -off
+
+for %f in fs0 fs1 fs2 fs3 fs4 fs5 fs6 fs7 fs8 fs9
+    #if exists(%f:\EFI\BOOT\startup.nsh) then
+    if exists(%f:\EFI\refind\startup.nsh) then
+        echo "rEFInd boot file system label is %f"
+        %f:
+        goto startup
+    endif
+endfor
+:startup
+
+echo "Searching for drivers incompatible with rEFInd..."
+drivers -sfo > drivers_info.txt
+if %lasterror% ne 0 then
+    echo "Unable to get loaded driver information"
+    goto unloaded
+endif
+
+# parse drivers info to unload drivers based on name
+for %n run (1 256)
+    parse drivers_info.txt DriversInfo 9 -i %n >v name
+    if %lasterror% ne 0 then
+        echo "Unable to get name for instance %n"
+        goto unloaded
+    endif
+    parse drivers_info.txt DriversInfo 2 -i %n >v handle
+    if %lasterror% ne 0 then
+        echo "Unable to get handle for instance %n"
+        goto unloaded
+    endif
+    if /i "%name%" == "hp ntfs file system driver" then
+        echo "Unloading driver: %name% (%handle%)"
+        unload -n %handle%
+        goto unloaded
+    endif
+endfor
+
+:unloaded
+echo "Incompatible drivers unloaded, booting to rEFInd..."
+if exists(drivers_info.txt) then
+    echo "rm drivers_info.txt"
+    rm drivers_info.txt
+endif
+
+# Hand off to rEFInd
+# \efi\boot\refind_bootx64.efi
+\EFI\refind\refind_x64_orig.efi
+
+:finished
+```
+
+I'd still much prefer that rEFInd work on my system without this workaround.
+I don't know if that's possible.
 
