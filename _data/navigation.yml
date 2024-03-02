@@ -3,6 +3,8 @@ main:
     url: /about/
   - title: "Post Archives"
     url: /archives/
+  - title: "Projects"
+    url: /pages/projects/
   - title: "Miscellaneous"
     url: /pages/miscellaneous/
   - title: "GitHub"

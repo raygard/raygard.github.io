@@ -3,7 +3,7 @@ layout: page
 title: Miscellaneous stuff
 ---
 
-### Nothing to see here yet...
+### Nothing to see here yet; just testing some link formats...
 
 <https://raygard.github.io>
 

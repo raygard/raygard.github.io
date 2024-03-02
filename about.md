@@ -22,10 +22,4 @@ I also enjoy programming, music (mostly old rock, jazz rock, blues rock, bluesy 
 
 I was also an avid though mediocre racquetball player for decades, until age and arthritis took me out of the game. But you should try it if you haven't already; it's a blast.
 
-<a name="not-a-blog" />
-
-## A glob, not a blog
-
-I don't consider this a blog; I think of a blog as better organized, with more regular posts, and preferably with comment capability. Though I may try to add comment capability to this later, if I think anyone ever reads it and has feedback. What to call this, then? My wife suggested that it's a glob. So it's a glob.
-
 Source for this site is at <https://github.com/raygard/raygard.github.io>.
