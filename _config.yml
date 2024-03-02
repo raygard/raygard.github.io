@@ -13,7 +13,7 @@
 # you will see them accessed via {{ site.title }}, {{ site.author }}, and so on.
 # You can create any custom variable you would like, and they will be accessible
 # in the templates via {{ site.myvariable }}.
-title: Ray Gardner's Glob
+title: Ray Gardner's space
 author: Ray Gardner
 description: >- # this means to ignore newlines until "baseurl:"
   Anything I want to put here, I put here.
