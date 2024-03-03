@@ -13,7 +13,7 @@ This is a work in progress, with code at [github](https://github.com/raygard/wak
 
 I've been interested in `diff` algorithms for a very long time, ever since a guy I worked with had written one for the Univac 1108. There have been many, the "formal" ones using solutions of the "longest common subsequence" problem (for two sequences). There are many solutions for that also, the earliest published being Hunt and Szymanski and/or Hunt and McIlroy (the latter being available only as a Bell Labs internal publication at first). I wrote about that on my [blog](/2022/08/26/diff-LCS-Hunt-Szymanski-Kuo-Cross/), including some later refinements, and have demo code at [github](https://github.com/raygard/lcs_diff_demo).
 
-### `tsort` implementations
+### `tsort`
 
 There is a POSIX spec for `tsort`, a utility that does a topological sort on pairs of alphanumeric symbols. I wrote a version that is straight out of Knuth TAOCP volume 1, with detailed comments linking the code to Knuth's informal description of his algorithm T. The result is at [github](https://github.com/raygard/tsort).
 
