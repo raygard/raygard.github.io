@@ -44,6 +44,9 @@ Though again, the region found is not a "longest common subsequence" as the term
 
 Some people have found that the histogram algorithm doesn't always produce the most readable diffs, but [Linus Torvalds](https://lkml.org/lkml/2023/5/7/206) prefers it over the default Myers.
 
+I have found that in some cases histogram diff produces shorter (in lines) output than Myers or "minimal".
+This (counterintuitive to me) behavior is probably due to histogram "clumping" changes while the LCS-based algorithms spread them out.
+
 One thing that can confound the algorithm is if there are no lines appearing fewer than 65 times.
 When that happens, the `jgit` and `git` implementations fall back to Myers.
 My implementation currently cuts off at 512.
