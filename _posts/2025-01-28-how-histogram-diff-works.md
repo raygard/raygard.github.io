@@ -4,8 +4,6 @@ title:  How "histogram diff" actually works
 date:   2025-01-28 05:00:00 -0600
 ---
 
-## How "histogram diff" actually works
-
 I've been interested in file comparison (diff) algorithms for quite a while.
 I'd assumed for some time that the classical approach, which uses a longest-common-subsequence (LCS) algorithm, is the best way to do this.
 The original Unix diff used [an algorithm](https://www.cs.dartmouth.edu/~doug/diff.pdf) by James W. Hunt and M.D. (Doug) McIlroy.
