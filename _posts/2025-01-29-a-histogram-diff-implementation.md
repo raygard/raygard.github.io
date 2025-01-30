@@ -9,6 +9,8 @@ The original version of histogram diff was implemented `jgit` by the late Shawn 
 I have written a stand-alone diff implementation that I believe exactly duplicates the behavior of histogram diff in `jgit`, and usually creates an identical (and otherwise very close) output to what `git diff --histogram` produces.
 You can find my code [here](https://github.com/raygard/hdiff).
 
+<!-- more -->
+
 I don't think this actually behaves quite like patience diff, even if there are many unique lines, but it seems to usually do a good job.
 
 In a paper from September 2019, [How different are different diff algorithms in Git?](https://link.springer.com/article/10.1007/s10664-019-09772-z) (PDF downloadable at the link), the authors compare two of git's diff algorithms: _Myers_ and _histogram_.
