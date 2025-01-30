@@ -12,6 +12,8 @@ It's finally in good enough shape I feel OK saying it's here. Of course it's not
 
 The code is in https://github.com/raygard/wak and a writeup on its development is at https://www.raygard.net/awkdoc/.
 
+<!-- more -->
+
 This was written primarily to provide an awk implementation for [Rob Landley's toybox project](http://landley.net/toybox) (repo at https://github.com/landley/toybox). He has placed it in the "pending" folder, and it remains to be seen if he really wants it or will promote it eventually to the "posix" folder. If you use toybox, you may want to get the version here, as the version in the toybox repo may not always be up to date.
 
 I developed wak as a standalone project initially because it was much easier to run compile/test cycles that way. Since it's under Landley's [public-domain-adjacent 0BSD license](https://spdx.org/licenses/0BSD.html), it can be freely used and adapted by anyone. I think if you find gawk or mawk satisfactory, you will probably have no need for wak. But if you want or need a less-encumbered and maybe more compact implementation, wak may be what you're looking for.
