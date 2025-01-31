@@ -29,7 +29,7 @@ Finally I examined the Java [source](https://github.com/eclipse-jgit/jgit/tree/m
 
 Here is a text and pseudocode desciption.
 
-Further discussion and a working histogram diff program will follow in another post.
+Further discussion and a working histogram diff program are in a [later post](https://www.raygard.net/2025/01/29/a-histogram-diff-implementation/).
 
 <!-- more -->
 

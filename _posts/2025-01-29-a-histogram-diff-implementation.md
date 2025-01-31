@@ -4,6 +4,8 @@ title: More on "histogram diff", and a working program
 date: 2025-01-29 05:00:00 -0600
 ---
 
+This is a follow-on to [my earlier post](https://www.raygard.net/2025/01/28/how-histogram-diff-works/) explaining the details of how histogram diff works, including a textual description of the algorithm and pseudocode.
+
 The original version of histogram diff was implemented `jgit` by the late Shawn Pearce in 2010, with the [comment](https://eclipse.googlesource.com/jgit/jgit/+/b533a7293429258f34a6778a45a6c66dac55dc43) that "HistogramDiff is an alternative implementation of patience diff, performing a search over all matching locations and picking the longest common subsequence that has the lowest occurrence count. If there are unique common elements, its behavior is identical to that of patience diff."
 
 I have written a stand-alone diff implementation that I believe exactly duplicates the behavior of histogram diff in `jgit`, and usually creates an identical (and otherwise very close) output to what `git diff --histogram` produces.
